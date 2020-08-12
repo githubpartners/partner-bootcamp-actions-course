@@ -31,3 +31,4 @@ steps:
       - type: respond
         with: trigger-azure-config.md
         issue: Setting up your environment!
+      # Respond with "all-set" for next class... see you soon!
