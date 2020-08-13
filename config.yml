@@ -9,23 +9,30 @@ before:
     body: new-issue.md
     labels:
       - provision probot app
+    store:
+      EnvironmentIssueUrl: '{{ result.data.html_url }}'
+      EnvironmentIssueNumber: '{{ result.data.number }}'
   - type: createPullRequest
     title: Creating Azure Resources
     body: create-azure-resources.md
     head: creating-azure-resources
+    store:
+      AzureSetupPRNumber: '{{ result.data.number }}'
+      AzureSetupPRUrl: '{{ result.data.html_url }}'
+
 steps:
   - title: First step
     description: The first step in your course
     event: pull_request.closed
-    link: "{{ repoUrl }}"
+    link: "{{ store.EnvironmentIssueUrl }}"
     actions:
       # if the pull was merged then comment in the issue with steps
       # to trigger the workflow
       - type: gate
-        left:
-        operator: ===
-        right:
+        left: '{{ payload.pull_request.merged }}'
         else:
+          - type: closeIssue
+            issue: '{{ store.EnvironmentIssueNumber }}'
           # else if pull was simply closed, then also close the issue
           # and don't comment
       - type: respond
