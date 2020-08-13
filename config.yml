@@ -5,7 +5,7 @@ template:
   name: partner-bootcamp-actions
 before:
   - type: createIssue
-    title: Setting up your environment!
+    title: "Activity 1: Setting up your environment!"
     body: new-issue.md
     labels:
       - provision probot app
@@ -13,12 +13,29 @@ before:
       EnvironmentIssueUrl: '{{ result.data.html_url }}'
       EnvironmentIssueNumber: '{{ result.data.number }}'
   - type: createPullRequest
-    title: Creating Azure Resources
+    title: "Activity 2: Creating Azure Resources"
     body: create-azure-resources.md
     head: creating-azure-resources
     store:
       AzureSetupPRNumber: '{{ result.data.number }}'
       AzureSetupPRUrl: '{{ result.data.html_url }}'
+
+  - type: createPullRequest
+    title: "Activity 3: Add a probot feature"
+    head: add-probot-feature
+    body: probot-feature-instructions.md
+
+  - type: createPullRequest
+    title: "Activity 4: Add a CI/CD workflow"
+    head: add-ci-cd-workflow
+    body: ci-cd-instructions.md
+
+  - type: createPullRequest
+    title: "Activity 5: Add a teardown workflow"
+    head: add-teardown-workflow
+    body: teardown-instructions.md
+
+
 
 steps:
   - title: First step
