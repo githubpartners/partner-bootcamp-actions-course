@@ -24,12 +24,12 @@ steps:
     - type: gate
       every: true
       gates:
-      - left: '%payload.action%'
-        operator: ===
-        right: closed
-      - left: '%payload.pull_request.merged%'
-        else:
-          type: closeIssue
+        - left: '%payload.action%'
+          operator: ===
+          right: closed
+        - left: '%payload.pull_request.merged%'
+      else:
+        - type: closeIssue
           issue: Setting up your environment!
           # else if pull was simply closed, then also close the issue
           # and don't comment
