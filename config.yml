@@ -21,14 +21,14 @@ before:
       AzureSetupPRUrl: '{{ result.data.html_url }}'
 
   - type: createPullRequest
-    title: "Activity 3: Add a probot feature"
-    head: add-probot-feature
-    body: probot-feature-instructions.md
-
-  - type: createPullRequest
-    title: "Activity 4: Add a CI/CD workflow"
+    title: "Activity 3: Add a CI/CD workflow"
     head: add-ci-cd-workflow
     body: ci-cd-instructions.md
+
+  - type: createPullRequest
+    title: "Activity 4: Add a probot feature"
+    head: add-probot-feature
+    body: probot-feature-instructions.md
 
   - type: createPullRequest
     title: "Activity 5: Add a teardown workflow"
