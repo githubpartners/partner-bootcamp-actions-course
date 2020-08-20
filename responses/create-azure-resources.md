@@ -157,9 +157,9 @@ The Probot app will need to make use of a private key. In a real world setting, 
   
    ![image](https://user-images.githubusercontent.com/38021615/89952339-eab3d500-dbe1-11ea-9861-b18a053b3dc0.png)
 
-3. Save the key
-4. If prompted to Resave, click Continue
-5. You are ready to deploy the codebase in this repo to your Azure resources
+   - Save the key
+   - If prompted to Resave, click Continue
+   - You are ready to deploy the codebase in this repo to your Azure resources
 
 
 #### 2. Configure Azure
