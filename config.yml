@@ -5,35 +5,54 @@ template:
   name: partner-bootcamp-actions
 before:
   - type: createIssue
-    title: Setting up your environment!
+    title: "Activity 1: Setting up your environment!"
     body: new-issue.md
     labels:
       - provision probot app
+    store:
+      EnvironmentIssueUrl: '{{ result.data.html_url }}'
+      EnvironmentIssueNumber: '{{ result.data.number }}'
   - type: createPullRequest
-    title: Creating Azure Resources
+    title: "Activity 2: Creating Azure Resources"
     body: create-azure-resources.md
     head: creating-azure-resources
+    store:
+      AzureSetupPRNumber: '{{ result.data.number }}'
+      AzureSetupPRUrl: '{{ result.data.html_url }}'
+
+  - type: createPullRequest
+    title: "Activity 3: Add a CI/CD workflow"
+    head: add-ci-cd-workflow
+    body: ci-cd-instructions.md
+
+  - type: createPullRequest
+    title: "Activity 4: Add a probot feature"
+    head: add-probot-feature
+    body: probot-feature-instructions.md
+
+  - type: createPullRequest
+    title: "Activity 5: Add a teardown workflow"
+    head: add-teardown-workflow
+    body: teardown-instructions.md
+
+
+
 steps:
   - title: First step
     description: The first step in your course
     event: pull_request.closed
-    link: "{{ repoUrl }}"
+    link: "{{ store.EnvironmentIssueUrl }}"
     actions:
       # if the pull was merged then comment in the issue with steps
       # to trigger the workflow
-    - type: gate
-      every: true
-      gates:
-        - left: '%payload.action%'
-          operator: ===
-          right: closed
-        - left: '%payload.pull_request.merged%'
-      else:
-        - type: closeIssue
-          issue: Setting up your environment!
+      - type: gate
+        left: '{{ payload.pull_request.merged }}'
+        else:
+          - type: closeIssue
+            issue: '{{ store.EnvironmentIssueNumber }}'
           # else if pull was simply closed, then also close the issue
           # and don't comment
-    - type: respond
-      with: trigger-azure-config.md
-      issue: Setting up your environment!
-      # Respond with "all-set" for next class... see you soon!
+      - type: respond
+        with: trigger-azure-config.md
+        issue: Setting up your environment!
+        # Respond with "all-set" for next class... see you soon!
