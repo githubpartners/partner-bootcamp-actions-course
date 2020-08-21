@@ -7,8 +7,6 @@ before:
   - type: createIssue
     title: Setting up your environment!
     body: new-issue.md
-    labels:
-      - provision probot app
   - type: createPullRequest
     title: Creating Azure Resources
     body: create-azure-resources.md
