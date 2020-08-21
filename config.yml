@@ -7,8 +7,6 @@ before:
   - type: createIssue
     title: "Activity 1: Setting up your environment!"
     body: new-issue.md
-    labels:
-      - provision probot app
     store:
       EnvironmentIssueUrl: '{{ result.data.html_url }}'
       EnvironmentIssueNumber: '{{ result.data.number }}'
@@ -55,4 +53,4 @@ steps:
       - type: respond
         with: trigger-azure-config.md
         issue: Setting up your environment!
-        # Respond with "all-set" for next class... see you soon!
+      # Respond with "all-set" for next class... see you soon!
