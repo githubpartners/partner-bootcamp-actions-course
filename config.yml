@@ -52,7 +52,7 @@ steps:
             issue: '{{ store.EnvironmentIssueNumber }}'
           # else if pull was simply closed, then also close the issue
           # and don't comment
-    - type: respond
-      with: trigger-azure-config.md
-      issue: Setting up your environment!
+      - type: respond
+        with: trigger-azure-config.md
+        issue: Setting up your environment!
       # Respond with "all-set" for next class... see you soon!
