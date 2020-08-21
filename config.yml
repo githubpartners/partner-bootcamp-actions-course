@@ -1,8 +1,8 @@
-title: partner-bootcamp-actions
+title: Partner Bootcamp Actions
 description: GitHub Actions hands-on work for partner bootcamp.
 template:
-  repo: partner-bootcamp-actions-template
   name: partner-bootcamp-actions
+  repo: partner-bootcamp-actions-template
 before:
   - type: createIssue
     title: "Activity 1: Setting up your environment!"
@@ -52,5 +52,5 @@ steps:
           # and don't comment
       - type: respond
         with: trigger-azure-config.md
-        issue: Setting up your environment!
+        issue: "Activity 1: Setting up your environment!"
       # Respond with "all-set" for next class... see you soon!

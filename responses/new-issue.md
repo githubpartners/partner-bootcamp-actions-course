@@ -106,4 +106,4 @@ Once all secrets are added your repository should look like this
 
 ---
 
-<h5 align="center">To continue this activity leave this issue open and navigate to the pull request titled "Creating Azure Resources"</h5>
+<h5 align="center">To continue this activity leave this issue open and navigate to the pull request titled "Creating Azure Resources".</h5>
