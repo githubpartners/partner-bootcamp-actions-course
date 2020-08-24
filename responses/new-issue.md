@@ -27,17 +27,14 @@
    ]
    ```
 1. Next we will create the service principle, which is will allow us to manage resources in your subscription. Run this command in your terminal:
+   ```
+   az ad sp create-for-rbac --name "GitHub-Actions" --role contributor \
+                           --scopes /subscriptions/{subscription-id} \
+                           --sdk-auth
 
-```
-az ad sp create-for-rbac --name "GitHub-Actions" --role contributor \
-                        --scopes /subscriptions/{subscription-id} \
-                        --sdk-auth
-
-# Replace {subscription-id} with the id you copied to use as AZURE_SUBSCRIPTION_ID.
-```
-
-> **The \ character works as a line break on Unix based systems. If you are on a Windows based system the \ character will cause this command to fail. Place this command on a single line if you are using Windows.**
-
+   # Replace {subscription-id} with the id you copied to use as AZURE_SUBSCRIPTION_ID.
+   ```
+   > **The \ character works as a line break on Unix based systems. If you are on a Windows based system the \ character will cause this command to fail. Place this command on a single line if you are using Windows.**
 1. The above command will respond with an object similar to the one shown below. Copy the entire objects contents to a safe place. We will later store it as a repository secret named `AZURE_CREDENTIALS`
    ```
    {
@@ -52,7 +49,7 @@ az ad sp create-for-rbac --name "GitHub-Actions" --role contributor \
 1. Click **New secret**
 1. Name your new secret **AZURE_SUBSCRIPTION_ID** and paste the value from the `id:` field from the result of step 2.
 1. Click **Add secret**.
-1. Repeat this process for **AZURE_CREDENTIALS** and paste the entire contents from the terminal command you ran in step 4.
+1. Repeat this process for **AZURE_CREDENTIALS** and paste the entire contents from the output of the terminal command you ran in step 4.
 </details>
 
 #### Probot secrets

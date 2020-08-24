@@ -20,7 +20,7 @@ before:
 
   - type: createPullRequest
     title: "Activity 3: Add a CI/CD workflow"
-    head: add-ci-cd-workflow
+    head: add-azure-ci-cd
     body: ci-cd-instructions.md
 
   - type: createPullRequest
@@ -30,7 +30,7 @@ before:
 
   - type: createPullRequest
     title: "Activity 5: Add a teardown workflow"
-    head: add-teardown-workflow
+    head: destroying-azure-resources
     body: teardown-instructions.md
 
 

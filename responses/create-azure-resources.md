@@ -6,10 +6,10 @@ Luckily, using GitHub Actions, we can greatly reduce this pain point and impleme
 
 This pull request contains a workflow that will configure all the necessary resources and deploy the current version of your Probot application automatically for us! In order to get a good understanding of what this workflow is going, it is beneficial to examine this process from a manual perspective first.
 
-**Expand one of the following sections to lean how to configure Azure either manually or using GitHub Actions**
+**Expand one of the following sections to lean how to configure Azure either manually _or_ using GitHub Actions**
 
 <details><summary>Manually configuring Microsoft Azure</summary>
-
+<br>
 **Provisioning**
 
 1. Configure a **subscription** (this is true even when using actions!)
@@ -44,7 +44,7 @@ This pull request contains a workflow that will configure all the necessary reso
    ```
 1. When that command completes run the next one:
    ```
-   az webapp deployment source config-local-git --name probot-add-collaborator --resource-group probot-applications
+   az webapp deployment source config-local-git --name probot-add-collaborators --resource-group probot-applications
    ```
 1. The previous command will present you with output similar to that below:
    ```
@@ -52,7 +52,7 @@ This pull request contains a workflow that will configure all the necessary reso
        "url": "https://username@msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git"
    }
    ```
-1. Add a new remote to Git named `azure`
+1. Add a new remote to Git named `azure` (Note: Do not copy and paste this; use the edited output of the previous step, removing your username.)
    ```
    git remote add azure https://msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git
    ```
@@ -65,7 +65,10 @@ This pull request contains a workflow that will configure all the necessary reso
 </details>
 
 <details><summary>Using GitHub Actions to configure Azure</summary>
+<br>
 In this pull request you will find a workflow named `config-azure.yml`. This workflow follows all of the above steps, however it leverages a few official Azure Actions as well as some raw `az cli` commands to get the job done.
+
+**This may take a while - anywhere from 6 to 25 minutes. If this is too long, you can use the manual method instead.**
 
 Let's take a quick peek at the jobs in this workflow before it get's triggered and set's up your environment for you.
 
@@ -150,7 +153,7 @@ The Probot app will need to make use of a private key. In a real world setting, 
       -----END PRIVATE KEY-----
    ```
 
-2. Add your private key to your **probot-add-collaborator app service** 
+2. Add your private key to your **probot-add-collaborators app service** 
    - Go to **Settings > Configuration**
    - Add a new application setting
    - Paste in the private key
@@ -173,7 +176,7 @@ The Probot app will need to make use of a private key. In a real world setting, 
   1. **Merge** this pull request 
   2. Go to the issue **Setting up your environment!** issue for further instructions.
 
-In either case, once the deployment of code is finished you need to replace the [Probot Webhook URL](https://github.com/settings/apps) in the app settings to point to your azure deployment
+In either case, once the deployment of code is finished you need to replace the [Probot Webhook URL](https://github.com/settings/apps) in the app settings to point to your azure deployment. (You can find this by going to "Resource groups", clicking "probot-add-collaborators", and copying the URL from that page.)
 
 ![image](https://user-images.githubusercontent.com/38021615/89918100-77dd3680-dbae-11ea-9953-68e501e4d3fb.png)
 
