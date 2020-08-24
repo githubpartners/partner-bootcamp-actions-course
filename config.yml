@@ -10,7 +10,7 @@ before:
   - type: createIssue
     title: "Activity 1: Setting up your environment!"
     body: new-issue.md
-    labels: 'provision probot app'
+    labels: ["provision probot app"]
     store:
       EnvironmentIssueUrl: '{{ result.data.html_url }}'
       EnvironmentIssueNumber: '{{ result.data.number }}'
