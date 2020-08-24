@@ -44,7 +44,7 @@ This pull request contains a workflow that will configure all the necessary reso
    ```
 1. When that command completes run the next one:
    ```
-   az webapp deployment source config-local-git --name probot-add-collaborator --resource-group probot-applications
+   az webapp deployment source config-local-git --name probot-add-collaborators --resource-group probot-applications
    ```
 1. The previous command will present you with output similar to that below:
    ```
@@ -151,7 +151,7 @@ The Probot app will need to make use of a private key. In a real world setting, 
       -----END PRIVATE KEY-----
    ```
 
-2. Add your private key to your **probot-add-collaborator app service** 
+2. Add your private key to your **probot-add-collaborators app service** 
    - Go to **Settings > Configuration**
    - Add a new application setting
    - Paste in the private key
