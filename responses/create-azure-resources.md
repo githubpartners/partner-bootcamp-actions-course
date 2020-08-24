@@ -52,7 +52,7 @@ This pull request contains a workflow that will configure all the necessary reso
        "url": "https://username@msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git"
    }
    ```
-1. Add a new remote to Git named `azure`
+1. Add a new remote to Git named `azure` (Note: Do not copy and paste this; use the edited output of the previous step, removing your username.)
    ```
    git remote add azure https://msdocs-node-cli.scm.azurewebsites.net/msdocs-node-cli.git
    ```
