@@ -34,7 +34,7 @@ before:
 
   - type: createPullRequest
     title: "Activity 5: Add a teardown workflow"
-    head: destroying-azure-resources
+    head: desroying-azure-resources
     body: teardown-instructions.md
 
 
