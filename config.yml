@@ -14,28 +14,28 @@ before:
     store:
       EnvironmentIssueUrl: '{{ result.data.html_url }}'
       EnvironmentIssueNumber: '{{ result.data.number }}'
-  - type: createPullRequest
-    title: "Activity 2: Creating Azure Resources"
-    body: create-azure-resources.md
-    head: creating-azure-resources
-    store:
-      AzureSetupPRNumber: '{{ result.data.number }}'
-      AzureSetupPRUrl: '{{ result.data.html_url }}'
+#  - type: createPullRequest
+ #   title: "Activity 2: Creating Azure Resources"
+  #  body: create-azure-resources.md
+   # head: creating-azure-resources
+    #store:
+ #     AzureSetupPRNumber: '{{ result.data.number }}'
+  #    AzureSetupPRUrl: '{{ result.data.html_url }}'
 
-  - type: createPullRequest
-    title: "Activity 3: Add a CI/CD workflow"
-    head: add-azure-ci-cd
-    body: ci-cd-instructions.md
+  #- type: createPullRequest
+   # title: "Activity 3: Add a CI/CD workflow"
+    #head: add-azure-ci-cd
+#    body: ci-cd-instructions.md
 
-  - type: createPullRequest
-    title: "Activity 4: Add a probot feature"
-    head: add-probot-feature
-    body: probot-feature-instructions.md
+ # - type: createPullRequest
+  #  title: "Activity 4: Add a probot feature"
+   # head: add-probot-feature
+    #body: probot-feature-instructions.md
 
-  - type: createPullRequest
-    title: "Activity 5: Add a teardown workflow"
-    head: desroying-azure-resources
-    body: teardown-instructions.md
+ # - type: createPullRequest
+  #  title: "Activity 5: Add a teardown workflow"
+   # head: desroying-azure-resources
+   # body: teardown-instructions.md
 
 
 
