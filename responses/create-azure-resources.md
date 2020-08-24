@@ -176,7 +176,7 @@ The Probot app will need to make use of a private key. In a real world setting, 
   1. **Merge** this pull request 
   2. Go to the issue **Setting up your environment!** issue for further instructions.
 
-In either case, once the deployment of code is finished you need to replace the [Probot Webhook URL](https://github.com/settings/apps) in the app settings to point to your azure deployment
+In either case, once the deployment of code is finished you need to replace the [Probot Webhook URL](https://github.com/settings/apps) in the app settings to point to your azure deployment. (You can find this by going to "Resource groups", clicking "probot-add-collaborators", and copying the URL from that page.)
 
 ![image](https://user-images.githubusercontent.com/38021615/89918100-77dd3680-dbae-11ea-9953-68e501e4d3fb.png)
 
