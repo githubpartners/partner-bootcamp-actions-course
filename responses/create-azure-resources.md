@@ -9,7 +9,7 @@ This pull request contains a workflow that will configure all the necessary reso
 **Expand one of the following sections to lean how to configure Azure either manually or using GitHub Actions**
 
 <details><summary>Manually configuring Microsoft Azure</summary>
-
+<br>
 **Provisioning**
 
 1. Configure a **subscription** (this is true even when using actions!)
@@ -65,6 +65,7 @@ This pull request contains a workflow that will configure all the necessary reso
 </details>
 
 <details><summary>Using GitHub Actions to configure Azure</summary>
+<br>
 In this pull request you will find a workflow named `config-azure.yml`. This workflow follows all of the above steps, however it leverages a few official Azure Actions as well as some raw `az cli` commands to get the job done.
 
 Let's take a quick peek at the jobs in this workflow before it get's triggered and set's up your environment for you.
