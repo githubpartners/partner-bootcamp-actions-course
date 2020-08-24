@@ -49,7 +49,7 @@
 1. Click **New secret**
 1. Name your new secret **AZURE_SUBSCRIPTION_ID** and paste the value from the `id:` field from the result of step 2.
 1. Click **Add secret**.
-1. Repeat this process for **AZURE_CREDENTIALS** and paste the entire contents from the terminal command you ran in step 4.
+1. Repeat this process for **AZURE_CREDENTIALS** and paste the entire contents from the output of the terminal command you ran in step 4.
 </details>
 
 #### Probot secrets
