@@ -4,9 +4,13 @@ template:
   name: partner-bootcamp-actions
   repo: partner-bootcamp-actions-template
 before:
+  - type: createLabel
+    name: provision probot app
+    color: 8132a8
   - type: createIssue
     title: "Activity 1: Setting up your environment!"
     body: new-issue.md
+    labels: ["provision probot app"]
     store:
       EnvironmentIssueUrl: '{{ result.data.html_url }}'
       EnvironmentIssueNumber: '{{ result.data.number }}'
