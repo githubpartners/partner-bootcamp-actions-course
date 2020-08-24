@@ -68,6 +68,8 @@ This pull request contains a workflow that will configure all the necessary reso
 <br>
 In this pull request you will find a workflow named `config-azure.yml`. This workflow follows all of the above steps, however it leverages a few official Azure Actions as well as some raw `az cli` commands to get the job done.
 
+**This may take a while - anywhere from 6 to 25 minutes. If this is too long, you can use the manual method instead.**
+
 Let's take a quick peek at the jobs in this workflow before it get's triggered and set's up your environment for you.
 
 1. The first two jobs of this workflow are quite simple, they checkout the code from the repository into the Actions workspace and then log in to the Azure CLI using the service principle you saved as the **AZURE_CREDENTIALS** repository secret
