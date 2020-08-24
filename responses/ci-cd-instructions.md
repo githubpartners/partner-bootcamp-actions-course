@@ -11,25 +11,22 @@ By the end of the exercise you will have created a usable workflow file and defi
 
 Let's get started!
 
+## 1. Find the CD workflow file
 
-## 1. Create a workflow file
+Locate the `probot-cd.yml` file inside of the directory `.github/workflows`. See what's already there:
 
-  Create an empty file called `cd-workflow.yml` inside of the folder `.github/workflows`.
-
-## 2. Name your workflow
-
-The following line of code sets the name of your workflow.  This is the first line you will place in your file.
+**Workflow name**: The following line of code sets the name of your workflow.  You don't need to add this, it's already there.
 
 ```
 name: Test and deploy probot
 
 ```
 
-## 3. Define events that trigger your workflow
+**Define events that trigger your workflow**:
 
 There are a number of event that take place inside of or to a repository. These events can be detected and then acted on from within your workflow.  In the case of the probot app, we want to have the system trigger the workflow when users push commits to the `main` or `master`branch.
 
-Here are the next lines that you'll use to set this up:
+These are also already included, so you don't need to add anything to these lines:
 
 ```
 on:
@@ -40,17 +37,16 @@ on:
 
 ```
 
-## 4. Specify any environment variables
-
-Though this step may not always be needed, the parameter `env` defines any environment variables needed in the workflow.  
-
-Use and environment variable to set the name of your Azure webapp name:
+**Environment variables**: Notice the variable for the Azure Webapp name. This correlates to the values in Azure.
 
 ```
-AZURE_WEBAPP_NAME: probot-add-collaborators
+env:
+  AZURE_WEBAPP_NAME: probot-add-collaborators
 ```
 
-## 5. Define jobs
+## 2. Define jobs
+
+Now, it's time to start making some changes. This is where we will list out the instructions that we want to happen when this action is run.
 
 When you define a job inside of your workflow, you will specify its name and the operating system that it runs on.
 
@@ -62,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
 ```
 
-## 6. Assign steps to the job
+## 3. Assign steps to the job
 
 Finally, let's define what should be done sequentially as the job  `package-and-deploy-to-azure` runs.
 
@@ -75,26 +71,81 @@ jobs:
     steps:
       - name: Checkout repository contents
         uses: actions/checkout@v2
+
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: "12"
+
       - name: Install dependencies
         run: |
           npm install
           npm run lint
           npm run test
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Package and Deploy to Azure
         if: success()
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
+
       - name: Logout of Azure
         run: |
           az logout
 
 ```
+
+<details>
+  <summary>Want to check your work? Here is the complete `probot-cd.yml` file.</summary>
+  <br>
+  
+  ```
+  on:
+  push:
+    branches:
+      - master
+      - main
+
+env:
+  AZURE_WEBAPP_NAME: probot-add-collaborators
+
+jobs:
+  package-and-deploy-to-azure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository contents
+        uses: actions/checkout@v2
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run lint
+          npm run test
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Package and Deploy to Azure
+        if: success()
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+
+      - name: Logout of Azure
+        run: |
+          az logout
+  ```
+
+</details>
