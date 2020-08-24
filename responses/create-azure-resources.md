@@ -6,7 +6,7 @@ Luckily, using GitHub Actions, we can greatly reduce this pain point and impleme
 
 This pull request contains a workflow that will configure all the necessary resources and deploy the current version of your Probot application automatically for us! In order to get a good understanding of what this workflow is going, it is beneficial to examine this process from a manual perspective first.
 
-**Expand one of the following sections to lean how to configure Azure either manually or using GitHub Actions**
+**Expand one of the following sections to lean how to configure Azure either manually _or_ using GitHub Actions**
 
 <details><summary>Manually configuring Microsoft Azure</summary>
 <br>
